@@ -10,12 +10,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /* A little extra style for a smooth transition on hover */
+        /* Style for smooth transitions and the modal */
         .icon-link {
             transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
         }
         .icon-link:hover {
             transform: translateY(-5px);
+        }
+        /* Custom styles for the modal buttons */
+        .modal-btn {
+            transition: background-color 0.2s ease-in-out;
         }
     </style>
 </head>
@@ -34,24 +38,101 @@
         
         <div class="flex justify-center items-center space-x-5 mt-8">
             
-            <a href="#" target="_blank" class="icon-link bg-gray-700 hover:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
+            <a href="https://www.linkedin.com/in/aravindar24" target="_blank" class="icon-link bg-gray-700 hover:bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
                 <i class="fab fa-linkedin-in"></i>
             </a>
             
-            <a href="www.linkedin.com/in/aravindar24" class="icon-link bg-gray-700 hover:bg-red-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
+            <button id="email-btn" class="icon-link bg-gray-700 hover:bg-red-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
                 <i class="fas fa-envelope"></i>
-            </a>
+            </button>
 
-            <a href="https://wa.me/7092909308" target="_blank" class="icon-link bg-gray-700 hover:bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
+            <a href="https://wa.me/917092909308" target="_blank" class="icon-link bg-gray-700 hover:bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
                 <i class="fab fa-whatsapp"></i>
             </a>
 
-            <a href="#" class="icon-link bg-gray-700 hover:bg-gray-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
+            <button id="phone-btn" class="icon-link bg-gray-700 hover:bg-gray-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl">
                 <i class="fas fa-phone"></i>
-            </a>
+            </button>
 
         </div>
     </div>
 
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4">
+        <div class="bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-xs text-center">
+            <h3 class="text-xl font-bold text-white mb-4">Contact Info</h3>
+            
+            <p id="modal-text" class="bg-gray-900 text-white text-lg rounded-md p-3 mb-5 break-words"></p>
+            
+            <div class="flex justify-center gap-4">
+                <button id="copy-btn" class="modal-btn w-full bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded">
+                    <i class="fas fa-copy mr-2"></i>Copy
+                </button>
+                
+                <a id="action-btn" href="#" class="modal-btn w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                    </a>
+            </div>
+
+            <button id="close-modal-btn" class="text-gray-400 hover:text-white mt-6">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Your contact details
+        const myEmail = "aravindkrishnan000@gmail.com";
+        const myPhone = "+917092909308";
+        // -------------------------
+
+        // Get all the elements we need to interact with
+        const modal = document.getElementById('contact-modal');
+        const emailBtn = document.getElementById('email-btn');
+        const phoneBtn = document.getElementById('phone-btn');
+        const closeModalBtn = document.getElementById('close-modal-btn');
+        
+        const modalText = document.getElementById('modal-text');
+        const copyBtn = document.getElementById('copy-btn');
+        const actionBtn = document.getElementById('action-btn');
+
+        // Function to open the modal for Email
+        emailBtn.addEventListener('click', () => {
+            modalText.textContent = myEmail;
+            actionBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>Mail';
+            actionBtn.href = `mailto:${myEmail}`;
+            modal.classList.remove('hidden');
+        });
+
+        // Function to open the modal for Phone
+        phoneBtn.addEventListener('click', () => {
+            modalText.textContent = myPhone;
+            actionBtn.innerHTML = '<i class="fas fa-phone mr-2"></i>Call';
+            actionBtn.href = `tel:${myPhone}`;
+            modal.classList.remove('hidden');
+        });
+
+        // Function to close the modal
+        const closeModal = () => {
+            modal.classList.add('hidden');
+        };
+        closeModalBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (event) => {
+            // Close modal only if background is clicked
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Function to copy text to clipboard
+        copyBtn.addEventListener('click', () => {
+            navigator.clipboard.writeText(modalText.textContent).then(() => {
+                // Give user feedback
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 1500); // Revert back after 1.5 seconds
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        });
+    </script>
 </body>
 </html>
