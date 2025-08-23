@@ -145,6 +145,20 @@ nav ul a:hover {
     transform: scale(1.2);
 }
 
+/* --- START: PHONE BUTTON EXPAND FIX --- */
+#phone-btn {
+    /* Smoothly transition width and background color */
+    transition: width 0.4s ease-in-out, background-color 0.3s;
+    border-radius: 50px; /* Make it a circle initially, becomes a pill shape on expand */
+}
+
+#phone-btn.revealed {
+    width: auto; /* Allow the button to grow to fit the content */
+    padding: 0 20px; /* Add horizontal padding for spacing */
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: subtle background */
+}
+/* --- END: PHONE BUTTON EXPAND FIX --- */
+
 .phone-reveal {
     font-family: var(--body-font);
     font-size: 1rem;
