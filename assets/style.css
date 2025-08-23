@@ -34,14 +34,14 @@ h1, h2, h3, h4, h5, h6 {
 header {
     background: var(--heading-color);
     color: white;
-    padding-top: 80px; /* Adjusted for new nav */
+    padding-top: 80px;
     padding-bottom: 60px;
     text-align: center;
     position: relative;
 }
 nav {
     display: flex;
-    justify-content: flex-start; /* Left-aligned */
+    justify-content: flex-start; /* Left-aligned on Desktop */
     align-items: center;
     padding: 20px;
     position: absolute;
@@ -116,12 +116,12 @@ nav ul a:hover {
     font-weight: 600;
 }
 
-/* --- NEW: SHOWCASE SECTION LAYOUT --- */
+/* --- SHOWCASE SECTION LAYOUT --- */
 .showcase-section {
     display: flex;
     gap: 40px;
     padding: 80px 20px;
-    align-items: stretch; /* This makes the columns equal height */
+    align-items: stretch;
     border-bottom: 1px solid #e0e0e0;
 }
 .section-description {
@@ -157,7 +157,7 @@ nav ul a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Makes the card fill the available vertical space */
+    height: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card:hover {
@@ -166,13 +166,13 @@ nav ul a:hover {
 }
 .project-card img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Taller image aspect ratio */
+    aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 .card-content {
     padding: 20px;
     text-align: center;
-    flex-grow: 1; /* Allows this section to grow and fill space */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -185,7 +185,7 @@ nav ul a:hover {
 }
 
 /* --- DETAIL PAGES (PROJECT & INTERNSHIP) --- */
-.project-header, .internship-header {
+.project-header {
     background-color: var(--primary-color);
     color: white;
     padding: 50px 0;
@@ -286,7 +286,8 @@ footer {
 }
 
 /* --- RESPONSIVE STYLES --- */
-@media (max-width: 768px) {
+/* For Tablets and Smaller Desktops (screens less than 992px wide) */
+@media (max-width: 992px) {
     .showcase-section {
         flex-direction: column;
         text-align: center;
@@ -294,12 +295,44 @@ footer {
     .section-description p {
         max-width: 100%;
     }
+    .section-grid {
+        width: 100%;
+    }
+}
+
+/* For Mobile Phones (screens less than 768px wide) */
+@media (max-width: 768px) {
+    /* --- Header & Navigation --- */
+    nav {
+        /* On mobile, center the navigation and allow wrapping */
+        justify-content: center;
+        padding: 15px;
+    }
     nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
+        gap: 15px; /* Reduce space between nav items */
+        flex-wrap: wrap; /* Allow items to wrap to a new line */
         justify-content: center;
     }
+    .btn-resume {
+        padding: 6px 14px; /* Slightly smaller button on mobile */
+    }
     .header-content .name-title {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Smaller main title */
+    }
+    .header-content .subtitle {
+        font-size: 1.1rem; /* Smaller subtitle */
+    }
+    
+    /* --- Main Content Sections --- */
+    .showcase-section {
+        padding: 60px 20px; /* Reduce top/bottom padding */
+    }
+    .section-description h2 {
+        font-size: 2rem; /* Smaller section titles */
+    }
+    
+    /* --- Detail Pages --- */
+    .project-details {
+        padding: 25px; /* Reduce padding on project detail cards */
     }
 }
