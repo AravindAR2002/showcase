@@ -121,7 +121,7 @@ nav ul a:hover {
     display: flex;
     gap: 40px;
     padding: 80px 20px;
-    align-items: center;
+    align-items: stretch; /* This makes the columns equal height */
     border-bottom: 1px solid #e0e0e0;
 }
 .section-description {
@@ -157,6 +157,7 @@ nav ul a:hover {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%; /* Makes the card fill the available vertical space */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .project-card:hover {
@@ -165,12 +166,16 @@ nav ul a:hover {
 }
 .project-card img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 4 / 3; /* Taller image aspect ratio */
     object-fit: cover;
 }
 .card-content {
     padding: 20px;
     text-align: center;
+    flex-grow: 1; /* Allows this section to grow and fill space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .card-content h3 {
     margin: 0;
