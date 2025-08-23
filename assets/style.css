@@ -1,28 +1,20 @@
-/* --- NEW: Navigation Bar Styles --- */
+/* --- UPDATED: Navigation Bar & Resume Button --- */
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Centers the navigation links */
     align-items: center;
-    padding: 15px 20px;
+    padding: 20px;
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     width: 100%;
-    max-width: 1100px;
-    box-sizing: border-box;
-}
-nav .logo {
-    color: white;
-    font-family: var(--heading-font);
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-decoration: none;
+    z-index: 10;
 }
 nav ul {
     list-style: none;
     display: flex;
-    gap: 25px;
+    align-items: center;
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -31,15 +23,22 @@ nav ul a {
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s;
+    font-size: 1rem;
 }
 nav ul a:hover {
     color: white;
 }
-.header-content {
-    /* This new class wraps the main header content */
+.btn-resume {
+    background-color: var(--secondary-color);
+    color: white !important; /* Overrides default link color */
+    padding: 8px 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
 }
-/* --- End of New Styles --- */
-
+.btn-resume:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-2px);
+}
 
 /* ------------------------- */
 /* --- EASY EDIT SECTION --- */
@@ -69,88 +68,157 @@ body {
     color: var(--text-color);
     line-height: 1.7;
 }
-
 .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
     color: var(--heading-color);
     font-weight: 600;
 }
-
 /* Header */
 header {
     background: var(--heading-color);
     color: white;
-    padding-top: 120px; /* Adjusted padding */
+    padding-top: 120px;
     padding-bottom: 60px;
     text-align: center;
     position: relative;
 }
-
 .name-title {
     font-size: 3.5rem;
     font-weight: 700;
     margin: 0;
     color: white;
 }
-
 .subtitle {
     font-size: 1.25rem;
     opacity: 0.8;
     margin-top: 5px;
 }
 
-.social-links {
-    margin-top: 25px;
+/* --- UPDATED: Header Contact Icons --- */
+.contact-icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
 }
-
-.social-links a {
+.contact-icons a, .contact-icons button {
     color: white;
-    font-size: 1.8rem;
-    margin: 0 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 1.5rem;
+    transition: color 0.3s, transform 0.3s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
 }
-
-.social-links a:hover {
+.contact-icons a:hover, .contact-icons button:hover {
     color: var(--secondary-color);
     transform: scale(1.2);
 }
-
-/* Projects Section */
-.projects {
-    padding: 50px 0;
+.phone-reveal {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    margin-left: 8px;
+    font-weight: 600;
 }
 
-.projects h2 {
+/* --- UPDATED: Experience Sections Layout --- */
+.experience-section {
+    padding: 50px 0;
+    border-top: 1px solid #e0e0e0;
+}
+.experience-section:first-of-type {
+    border-top: none;
+}
+.experience-section h2 {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     position: relative;
 }
-
-/* Adds a little underline to the heading */
-.projects h2::after {
+.experience-section h2::after {
     content: '';
     display: block;
     width: 80px;
     height: 4px;
     background: var(--primary-color);
-    margin: 10px auto 0;
+    margin: 10px auto 40px;
     border-radius: 2px;
 }
+.experience-details {
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+}
+.experience-details h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--heading-color);
+}
+.experience-details p {
+    margin-top: 5px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+.experience-details .role-meta {
+    font-size: 1rem;
+    color: #555;
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
 
+/* --- NEW: Impact Statement Block --- */
+.impact-statement {
+    background-color: #e8f7f7; /* A very light teal */
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-align: left;
+}
+.impact-statement i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+.impact-statement p {
+    margin: 0;
+    color: var(--heading-color);
+}
+.impact-statement a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 5px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+.impact-statement a:hover {
+    text-decoration: underline;
+}
+
+/* --- Project Cards (No Changes) --- */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
-
-/* This is the updated project card style for thumbnails */
 .project-card {
     background: var(--card-background);
     border-radius: 10px;
@@ -162,28 +230,23 @@ header {
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.1);
 }
-
 .project-card img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
 }
-
 .card-content {
     padding: 25px;
 }
-
 .card-content h3 {
     margin-top: 0;
     color: var(--primary-color);
     font-size: 1.4rem;
 }
-
 .card-content p {
     font-size: 1rem;
     padding: 0;
@@ -191,18 +254,16 @@ header {
     opacity: 0.8;
 }
 
-/* Project Detail Page Specifics */
+/* --- Project Detail Page (No Changes) --- */
 .project-header {
     background-color: var(--primary-color);
     color: white;
     padding: 50px 0;
     text-align: center;
 }
-
 .project-header h1, .project-header p {
     color: white;
 }
-
 .project-details {
     padding: 40px;
     background: white;
@@ -211,24 +272,19 @@ header {
     position: relative;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
-
-/* Added this style for the main project image */
 .project-image {
     width: 100%;
     border-radius: 8px;
     margin-bottom: 30px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
 .project-details ul {
     list-style-type: '✓  ';
     padding-left: 20px;
 }
-
 .project-links {
     margin: 40px 0;
 }
-
 .btn {
     display: inline-block;
     padding: 12px 25px;
@@ -240,19 +296,16 @@ header {
     margin-right: 10px;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .btn:hover {
     background: var(--heading-color);
     transform: translateY(-2px);
 }
-
 .btn.btn-secondary {
     background: #6c757d;
 }
 .btn.btn-secondary:hover {
     background: #5a6268;
 }
-
 .back-link {
     display: inline-block;
     text-decoration: none;
@@ -263,8 +316,6 @@ header {
 .back-link:hover{
     text-decoration: underline;
 }
-
-/* Footer */
 footer {
     text-align: center;
     padding: 25px;
