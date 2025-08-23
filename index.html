@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Internship Experience - Aravind A R</title>
+    <title>Aravind A R - MBA Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
@@ -12,38 +12,76 @@
 </head>
 <body>
 
-    <header class="project-header">
-        <div class="container">
-            <h1>Internship Experience</h1>
-            <p>A summary of my role, responsibilities, and key achievements at Evershine Dynamic Corporation.</p>
+    <header>
+        <!-- Left-aligned Navigation -->
+        <nav class="container">
+            <ul>
+                <li><a href="#internship">Internship</a></li>
+                <li><a href="#personal-projects">Personal Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="assets/Aravind_AR_Resume.pdf" target="_blank" class="btn-resume">View Resume</a></li>
+            </ul>
+        </nav>
+
+        <!-- Centered Header Content -->
+        <div class="container header-content">
+            <h1 class="name-title">Aravind A R</h1>
+            <p class="subtitle">MBA Candidate | Business Strategy & Financial Analysis</p>
+            <div class="contact-icons">
+                <button id="phone-btn" title="Show Phone Number">
+                    <i class="fas fa-phone"></i>
+                    <span id="phone-number" class="phone-reveal"></span>
+                </button>
+                <a href="mailto:youremail@example.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/aravindar24" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
         </div>
     </header>
 
     <main>
-        <section class="project-details container">
-            
-            <h2>Founder's Office Intern</h2>
-            <div class="role-details">
-                <p><strong>Company:</strong> Evershine Dynamic Corporation LTD</p>
-                <p><strong>Division:</strong> Fiberglass Composite Rebar & Profiles Department</p>
-                <p><strong>Duration:</strong> [Start Date] – [Completion Date]</p>
-                <p><strong>Location:</strong> [City, India]</p>
+        <!-- New Two-Column Internship Section -->
+        <section id="internship" class="showcase-section container">
+            <div class="section-description">
+                <h2>Internship Projects</h2>
+                <p>A collection of high-impact projects from my role in the Founder's Office at Evershine Dynamic Corporation, focusing on cost optimization, process automation, and strategic sourcing.</p>
+                <a href="internship-details.html" class="btn">Learn About My Role</a>
             </div>
+            <div class="section-grid">
+                <a href="project1.html" class="project-card">
+                    <img src="assets/images/project1-thumbnail.jpg" alt="Cost Analysis Project">
+                    <div class="card-content"><h3>Unit Cost & Pricing Analysis</h3></div>
+                </a>
+                <a href="project2.html" class="project-card">
+                    <img src="assets/images/project2-thumbnail.jpg" alt="PO Automation Project">
+                    <div class="card-content"><h3>Procurement & PO Automation</h3></div>
+                </a>
+                <a href="project3.html" class="project-card">
+                    <img src="assets/images/project3-thumbnail.jpg" alt="Sourcing & Execution Project">
+                    <div class="card-content"><h3>Strategic Sourcing & Execution</h3></div>
+                </a>
+            </div>
+        </section>
 
-            <h3>Role Overview & Responsibilities</h3>
-            <p>
-                As an intern in the Founder's Office, I was entrusted with a high-stakes role focused on driving strategic initiatives critical to the company's expansion. My responsibilities included identifying operational inefficiencies, leading cost-saving projects, automating key business processes, and establishing strategic partnerships to enhance our market position.
-            </p>
-            
-            <div class="impact-statement">
-                <i class="fas fa-star"></i>
-                <div>
-                    <p><strong>Key Impact:</strong> My contributions during the internship directly led to the creation of a new full-time role, "Founder's Office Chief of Staff," to continue the strategic initiatives I established.</p>
-                    <a href="[LINK-TO-MD-APPRECIATION-POST]" target="_blank">Read the MD's Announcement →</a>
-                </div>
+        <!-- New Two-Column Personal Projects Section -->
+        <section id="personal-projects" class="showcase-section container">
+            <div class="section-description">
+                <h2>Personal Projects</h2>
+                <p>A showcase of self-directed projects built to apply financial concepts and master new technologies, demonstrating a passion for continuous learning and practical application.</p>
             </div>
-            
-            <a href="index.html#internship" class="back-link" style="margin-top: 40px;">&larr; Back to Projects</a>
+            <div class="section-grid">
+                <a href="personal-project-1.html" class="project-card">
+                    <img src="assets/images/personal-project-thumbnail.jpg" alt="Investment Tracker Project">
+                    <div class="card-content"><h3>Automated Investment Tracker</h3></div>
+                </a>
+                <a href="portfolio-project.html" class="project-card">
+                    <img src="assets/images/portfolio-thumbnail.jpg" alt="Portfolio Website Project">
+                    <div class="card-content"><h3>Professional Portfolio Website</h3></div>
+                </a>
+            </div>
         </section>
     </main>
 
@@ -51,5 +89,16 @@
         <p>&copy; 2025 Aravind A R. All Rights Reserved.</p>
     </footer>
 
+    <!-- Phone Number Reveal Script -->
+    <script>
+        document.getElementById('phone-btn').addEventListener('click', function() {
+            const phoneSpan = document.getElementById('phone-number');
+            if (phoneSpan.textContent === '') {
+                phoneSpan.textContent = '+91-XXXXX-XXXXX'; // Replace with your actual phone number
+                this.style.width = 'auto';
+                this.style.padding = '0 15px';
+            }
+        });
+    </script>
 </body>
 </html>
