@@ -1,3 +1,46 @@
+/* --- NEW: Navigation Bar Styles --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1100px;
+    box-sizing: border-box;
+}
+nav .logo {
+    color: white;
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+nav ul a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+nav ul a:hover {
+    color: white;
+}
+.header-content {
+    /* This new class wraps the main header content */
+}
+/* --- End of New Styles --- */
+
+
 /* ------------------------- */
 /* --- EASY EDIT SECTION --- */
 /* ------------------------- */
@@ -43,8 +86,10 @@ h1, h2, h3, h4, h5, h6 {
 header {
     background: var(--heading-color);
     color: white;
-    padding: 60px 0;
+    padding-top: 120px; /* Adjusted padding */
+    padding-bottom: 60px;
     text-align: center;
+    position: relative;
 }
 
 .name-title {
@@ -105,49 +150,46 @@ header {
     gap: 30px;
 }
 
+/* This is the updated project card style for thumbnails */
 .project-card {
     background: var(--card-background);
     border-radius: 10px;
     text-decoration: none;
     color: var(--text-color);
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    overflow: hidden; /* Keeps the border inside the card radius */
-    border-top: 5px solid transparent;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-    border-top-color: var(--primary-color);
 }
 
-.project-card h3 {
-    margin: 0;
+.project-card img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    margin-top: 0;
     color: var(--primary-color);
     font-size: 1.4rem;
 }
 
-.project-card p {
+.card-content p {
     font-size: 1rem;
     padding: 0;
     margin: 10px 0 0;
     opacity: 0.8;
 }
-
-/* Inner content padding for the card */
-.project-card h3, .project-card p {
-    padding: 0 25px;
-}
-/* Adjust padding for the last element */
-.project-card p {
-    padding-bottom: 25px;
-}
-/* Adjust padding for the first element */
-.project-card h3 {
-    padding-top: 25px;
-}
-
 
 /* Project Detail Page Specifics */
 .project-header {
@@ -170,8 +212,16 @@ header {
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
 }
 
+/* Added this style for the main project image */
+.project-image {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .project-details ul {
-    list-style-type: '✓  '; /* Adds a checkmark before list items */
+    list-style-type: '✓  ';
     padding-left: 20px;
 }
 
