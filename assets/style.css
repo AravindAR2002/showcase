@@ -1,7 +1,47 @@
-/* --- UPDATED: Navigation Bar & Resume Button --- */
+/* --- EASY EDIT SECTION --- */
+:root {
+    --primary-color: #005f73;
+    --secondary-color: #0a9396;
+    --background-color: #f4f4f4;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --heading-color: #001219;
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Lato', sans-serif;
+}
+
+/* --- BASE STYLES --- */
+body {
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    background: var(--heading-color);
+    color: white;
+    padding-top: 80px; /* Adjusted for new nav */
+    padding-bottom: 60px;
+    text-align: center;
+    position: relative;
+}
 nav {
     display: flex;
-    justify-content: center; /* Centers the navigation links */
+    justify-content: flex-start; /* Left-aligned */
     align-items: center;
     padding: 20px;
     position: absolute;
@@ -30,7 +70,7 @@ nav ul a:hover {
 }
 .btn-resume {
     background-color: var(--secondary-color);
-    color: white !important; /* Overrides default link color */
+    color: white !important;
     padding: 8px 18px;
     border-radius: 5px;
     transition: background-color 0.3s, transform 0.2s;
@@ -39,67 +79,17 @@ nav ul a:hover {
     background-color: var(--primary-color);
     transform: translateY(-2px);
 }
-
-/* ------------------------- */
-/* --- EASY EDIT SECTION --- */
-/* ------------------------- */
-:root {
-    /* Colors - Change these to alter the site's theme */
-    --primary-color: #005f73;   /* A dark teal for accents */
-    --secondary-color: #0a9396; /* A lighter teal */
-    --background-color: #f4f4f4; /* Light gray background */
-    --card-background: #ffffff; /* White for cards */
-    --text-color: #333333;      /* Dark gray for text */
-    --heading-color: #001219;   /* Almost black for headings */
-
-    /* Fonts - Change these to alter the site's fonts */
-    --heading-font: 'Poppins', sans-serif;
-    --body-font: 'Lato', sans-serif;
-}
-/* ------------------------- */
-/* --- END OF EDIT SECTION --- */
-/* ------------------------- */
-
-body {
-    font-family: var(--body-font);
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.7;
-}
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--heading-font);
-    color: var(--heading-color);
-    font-weight: 600;
-}
-/* Header */
-header {
-    background: var(--heading-color);
-    color: white;
-    padding-top: 120px;
-    padding-bottom: 60px;
-    text-align: center;
-    position: relative;
-}
-.name-title {
+.header-content .name-title {
     font-size: 3.5rem;
     font-weight: 700;
     margin: 0;
     color: white;
 }
-.subtitle {
+.header-content .subtitle {
     font-size: 1.25rem;
     opacity: 0.8;
     margin-top: 5px;
 }
-
-/* --- UPDATED: Header Contact Icons --- */
 .contact-icons {
     margin-top: 30px;
     display: flex;
@@ -111,16 +101,9 @@ header {
     color: white;
     font-size: 1.5rem;
     transition: color 0.3s, transform 0.3s;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
-    width: 40px;
+    background: none; border: none; cursor: pointer; padding: 0;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    height: 40px; width: 40px;
 }
 .contact-icons a:hover, .contact-icons button:hover {
     color: var(--secondary-color);
@@ -133,92 +116,38 @@ header {
     font-weight: 600;
 }
 
-/* --- UPDATED: Experience Sections Layout --- */
-.experience-section {
-    padding: 50px 0;
-    border-top: 1px solid #e0e0e0;
-}
-.experience-section:first-of-type {
-    border-top: none;
-}
-.experience-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    position: relative;
-}
-.experience-section h2::after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 4px;
-    background: var(--primary-color);
-    margin: 10px auto 40px;
-    border-radius: 2px;
-}
-.experience-details {
-    text-align: center;
-    margin-bottom: 40px;
-    background-color: #f8f9fa;
-    padding: 25px;
-    border-radius: 8px;
-}
-.experience-details h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: var(--heading-color);
-}
-.experience-details p {
-    margin-top: 5px;
-    font-size: 1.1rem;
-    color: var(--text-color);
-    opacity: 0.9;
-}
-.experience-details .role-meta {
-    font-size: 1rem;
-    color: #555;
-    margin-top: -10px;
-    margin-bottom: 25px;
-}
-
-/* --- NEW: Impact Statement Block --- */
-.impact-statement {
-    background-color: #e8f7f7; /* A very light teal */
-    border-left: 5px solid var(--primary-color);
-    padding: 20px;
-    margin-top: 25px;
-    border-radius: 0 8px 8px 0;
+/* --- NEW: SHOWCASE SECTION LAYOUT --- */
+.showcase-section {
     display: flex;
+    gap: 40px;
+    padding: 80px 20px;
     align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+}
+.section-description {
+    flex: 1;
+    min-width: 280px;
+}
+.section-description h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+.section-description p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    max-width: 400px;
+}
+.section-description .btn {
+    margin-top: 20px;
+}
+.section-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 20px;
-    text-align: left;
-}
-.impact-statement i {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-}
-.impact-statement p {
-    margin: 0;
-    color: var(--heading-color);
-}
-.impact-statement a {
-    color: var(--primary-color);
-    font-weight: bold;
-    text-decoration: none;
-    margin-top: 5px;
-    display: inline-block;
-    transition: color 0.3s;
-}
-.impact-statement a:hover {
-    text-decoration: underline;
 }
 
-/* --- Project Cards (No Changes) --- */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-}
+/* --- PROJECT CARDS --- */
 .project-card {
     background: var(--card-background);
     border-radius: 10px;
@@ -236,26 +165,22 @@ header {
 }
 .project-card img {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
     object-fit: cover;
 }
 .card-content {
-    padding: 25px;
+    padding: 20px;
+    text-align: center;
 }
 .card-content h3 {
-    margin-top: 0;
+    margin: 0;
     color: var(--primary-color);
-    font-size: 1.4rem;
-}
-.card-content p {
-    font-size: 1rem;
-    padding: 0;
-    margin: 10px 0 0;
-    opacity: 0.8;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
-/* --- Project Detail Page (No Changes) --- */
-.project-header {
+/* --- DETAIL PAGES (PROJECT & INTERNSHIP) --- */
+.project-header, .internship-header {
     background-color: var(--primary-color);
     color: white;
     padding: 50px 0;
@@ -282,8 +207,43 @@ header {
     list-style-type: '✓  ';
     padding-left: 20px;
 }
-.project-links {
-    margin: 40px 0;
+.role-details {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0 30px;
+}
+.role-details p {
+    margin: 5px 0;
+}
+.impact-statement {
+    background-color: #e8f7f7;
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.impact-statement i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+.impact-statement p {
+    margin: 0;
+    color: var(--heading-color);
+}
+.impact-statement a {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 5px;
+    display: inline-block;
+    transition: color 0.3s;
+}
+.impact-statement a:hover {
+    text-decoration: underline;
 }
 .btn {
     display: inline-block;
@@ -300,12 +260,6 @@ header {
     background: var(--heading-color);
     transform: translateY(-2px);
 }
-.btn.btn-secondary {
-    background: #6c757d;
-}
-.btn.btn-secondary:hover {
-    background: #5a6268;
-}
 .back-link {
     display: inline-block;
     text-decoration: none;
@@ -316,10 +270,31 @@ header {
 .back-link:hover{
     text-decoration: underline;
 }
+
+/* --- FOOTER --- */
 footer {
     text-align: center;
     padding: 25px;
     margin-top: 40px;
     background: var(--heading-color);
     color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- RESPONSIVE STYLES --- */
+@media (max-width: 768px) {
+    .showcase-section {
+        flex-direction: column;
+        text-align: center;
+    }
+    .section-description p {
+        max-width: 100%;
+    }
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-content .name-title {
+        font-size: 2.5rem;
+    }
 }
