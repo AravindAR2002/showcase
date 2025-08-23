@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Portfolio Tracker - Aravind A R</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <header class="project-header">
+        <div class="container">
+            <h1>Automated Investment & Portfolio Management System</h1>
+            <p>A self-directed project to build a fully automated financial tool, applying advanced financial modeling and achieving mastery in Google Apps Script.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-details container">
+            
+            <img src="assets/images/personal-project-main.jpg" alt="A dashboard view of the automated portfolio tracker" class="project-image">
+
+            <h2>Project Objective</h2>
+            <p>
+                The objective of this project was twofold: first, to achieve mastery-level proficiency in Google Sheets and Google Apps Script by architecting a complex, real-world application. Second, it was to apply financial concepts from my MBA coursework—such as FIFO accounting and XIRR calculations—to build a practical tool for sophisticated investment tracking and analysis.
+            </p>
+
+            <h3>System Architecture & Key Features</h3>
+            <p>
+                I architected a multi-sheet system where manual input is minimized to a single 'Cash Flow' sheet. From that single point of entry, a cascade of automated functions and scripts manage the entire portfolio.
+            </p>
+            
+            <h4 style="font-weight: bold; margin-top: 25px;">1. Automated FIFO Accounting (Google Apps Script)</h4>
+            <p>
+                I developed a custom script that implements the First-In, First-Out (FIFO) accounting model. It runs automatically on every transaction to accurately calculate weighted average cost, current holdings, and realized gains/losses upon a 'sell' transaction for tax-efficient reporting.
+            </p>
+
+            <h4 style="font-weight: bold; margin-top: 25px;">2. 'Zero-Touch' SIP Tracking (Gmail Automation)</h4>
+            <p>
+                To automate recurring investments, I wrote a time-triggered script that runs weekly. It securely accesses a specific Gmail label, uses Regular Expressions (Regex) to parse SIP confirmation emails for key data (units, price, date), and automatically logs the transaction, requiring zero manual intervention.
+            </p>
+
+            <h4 style="font-weight: bold; margin-top: 25px;">3. Real-Time Portfolio Dashboard</h4>
+            <p>
+                The main 'Portfolio' sheet acts as a dynamic dashboard. It uses native `GOOGLEFINANCE` functions to pull live market prices and automatically calculates key metrics, including daily growth, net profit (factoring in dividends), and the true time-weighted return (**XIRR**) for both individual assets and the entire portfolio.
+            </p>
+
+            <h4 style="font-weight: bold; margin-top: 25px;">4. Advanced Performance Benchmarking</h4>
+            <p>
+                An 'Analysis' sheet automatically pulls historical data and key financial ratios (P/E, Market Cap) for each holding. It calculates the Compound Annual Growth Rate (CAGR) over multiple time horizons (1, 3, 5 years) and benchmarks the portfolio's performance against key Indian market indices like Nifty and Sensex.
+            </p>
+
+            <div class="project-links">
+                <a href="[PASTE-YOUR-VIEW-ONLY-LINK-TO-THE-GOOGLE-SHEET-HERE]" class="btn" target="_blank">View the Live Tool</a>
+            </div>
+
+            <details style="cursor: pointer;">
+                <summary><strong>View Sample: 'Zero-Touch' SIP Automation Script</strong></summary>
+                <pre style="background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin-top: 10px; white-space: pre-wrap; word-wrap: break-word; font-size: 0.9em;"><code>
+function trackSipFromGmail() {
+  const label = GmailApp.getUserLabelByName("SIP_Confirmations");
+  const threads = label.getThreads();
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Cash_Flow");
+
+  for (const thread of threads) {
+    const message = thread.getMessages()[0];
+    const body = message.getPlainBody();
+    
+    // Use Regex to find the data
+    const dateMatch = body.match(/Date:\s*(\d{2}-\d{2}-\d{4})/);
+    const unitsMatch = body.match(/Units:\s*([\d.]+)/);
+    const amountMatch = body.match(/Amount:\s*([\d,]+)/);
+
+    if (dateMatch && unitsMatch && amountMatch) {
+      const date = dateMatch[1];
+      const units = parseFloat(unitsMatch[1]);
+      const amount = parseFloat(amountMatch[1].replace(/,/g, ''));
+      const price = amount / units;
+      
+      // Append data to the Cash Flow sheet
+      sheet.appendRow([new Date(date), "MF_TICKER", price, units, "BUY"]);
+      
+      // Mark email as read or move it
+      message.markRead();
+    }
+  }
+}
+                </code></pre>
+            </details>
+            
+            <a href="index.html" class="back-link" style="margin-top: 40px;">&larr; Back to Portfolio</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aravind A R. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
