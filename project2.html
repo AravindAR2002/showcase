@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procurement (PO) Automation - Aravind A R</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <header class="project-header">
+        <div class="container">
+            <h1>Procurement Process Automation</h1>
+            <p>A Google Sheets-based system that cut data entry errors by over 50% and boosted efficiency.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-details container">
+            
+            <img src="assets/images/project2-main.jpg" alt="Screenshot of the automated PO system in Google Sheets" class="project-image">
+
+            <h2>The Business Problem</h2>
+            <p>
+                As a growing MSME, the company's procurement process was entirely manual. Purchase orders were created and tracked in basic spreadsheets, a method that was time-consuming, prone to costly data entry errors, and lacked a centralized, auditable trail. To support the company's expansion, I was tasked with developing an efficient and scalable automated PO system.
+            </p>
+
+            <h3>The Solution: An Automated Workflow</h3>
+            <p>
+                I designed and implemented a comprehensive PO automation tool using Google Sheets and Google Apps Script. The solution transformed the procurement workflow into three streamlined stages:
+            </p>
+            <ol style="list-style-position: inside;">
+                <li><strong>Smart PO Generation:</strong> A user selects a supplier from a dropdown, and the system automatically populates the PO template with the correct addresses, GST number, and contact details from a central database, eliminating manual entry.</li>
+                <li><strong>One-Click PDF Export & Logging:</strong> A custom menu button exports the completed PO as a formatted PDF to a shared Google Drive folder. Simultaneously, it records all key details (PO number, date, supplier, etc.) in a central log sheet, creating an instant audit trail.</li>
+                <li><strong>Integrated Email Distribution:</strong> A user can input recipient emails and, with a simple dropdown selection, the system automatically emails the PO PDF to the specified contacts, logging the "sent" status and time.</li>
+            </ol>
+            
+            <h3>Technical Implementation</h3>
+            <p>
+                The core automation was powered by **Google Apps Script**. For example, to ensure unique and trackable order IDs, I wrote a script to auto-generate a PO number. You can also view a live version of the tool.
+            </p>
+            <p>
+                <a href="[LINK-TO-YOUR-VIEW-ONLY-GOOGLE-SHEET]" target="_blank" class="btn">View the Live Google Sheet</a>
+            </p>
+            <details style="margin-top: 15px; cursor: pointer;">
+                <summary><strong>View the PO Number Generation Script</strong></summary>
+                <pre style="background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin-top: 10px; white-space: pre-wrap; word-wrap: break-word;"><code>
+// Paste your Google Apps Script for PO number generation here
+function generatePoNumber() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("PO_Sheet");
+  const date = new Date();
+  const branchCode = "MDU";
+  const year = date.getFullYear().toString().slice(-2);
+  const month = ("0" + (date.getMonth() + 1)).slice(-2);
+  const day = ("0" + date.getDate()).slice(-2);
+  const randomNum = Math.floor(100 + Math.random() * 900);
+  
+  const poNumber = `PO-${branchCode}-${year}${month}${day}-${randomNum}`;
+  sheet.getRange("C5").setValue(poNumber); 
+}
+                </code></pre>
+            </details>
+            
+            <h3 style="margin-top: 30px;">Outcome & Impact</h3>
+            <ul>
+                <li><strong>Reduced Errors by over 50%:</strong> By automating supplier data entry, the system drastically cut down on costly manual errors.</li>
+                <li><strong>Improved Operational Efficiency:</strong> The one-click PDF generation and emailing saved significant administrative time, allowing the accounts manager to focus on higher-value tasks.</li>
+                <li><strong>Established an Audit Trail:</strong> The automated logging system created a centralized, digital, and auditable trail for all purchase orders, improving financial governance.</li>
+            </ul>
+            
+            <a href="index.html" class="back-link" style="margin-top: 40px;">&larr; Back to Portfolio</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Aravind A R. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
