@@ -13,7 +13,6 @@
 <body>
 
     <header>
-        <!-- Left-aligned Navigation -->
         <nav class="container">
             <ul>
                 <li><a href="#internship">Internship</a></li>
@@ -23,7 +22,6 @@
             </ul>
         </nav>
 
-        <!-- Centered Header Content -->
         <div class="container header-content">
             <h1 class="name-title">Aravind A R</h1>
             <p class="subtitle">MBA Candidate | Business Strategy & Financial</p>
@@ -32,7 +30,7 @@
                     <i class="fas fa-phone"></i>
                     <span id="phone-number" class="phone-reveal"></span>
                 </button>
-                <a href="aravindkrishnan000@gmail.com" title="Email">
+                <a href="mailto:aravindkrishnan000@gmail.com" title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
                 <a href="https://www.linkedin.com/in/aravindar24" target="_blank" title="LinkedIn">
@@ -43,7 +41,6 @@
     </header>
 
     <main>
-        <!-- New Two-Column Internship Section -->
         <section id="internship" class="showcase-section container">
             <div class="section-description">
                 <h2>Internship Projects</h2>
@@ -66,7 +63,6 @@
             </div>
         </section>
 
-        <!-- New Two-Column Personal Projects Section -->
         <section id="personal-projects" class="showcase-section container">
             <div class="section-description">
                 <h2>Personal Projects</h2>
@@ -89,16 +85,16 @@
         <p>&copy; 2025 Aravind A R. All Rights Reserved.</p>
     </footer>
 
-    <!-- Phone Number Reveal Script -->
     <script>
         document.getElementById('phone-btn').addEventListener('click', function() {
             const phoneSpan = document.getElementById('phone-number');
             if (phoneSpan.textContent === '') {
-                phoneSpan.textContent = '+91-XXXXX-XXXXX'; // Replace with your actual phone number
-                this.style.width = 'auto';
-                this.style.padding = '0 15px';
+                // FIXED: Added your actual phone number
+                phoneSpan.textContent = '+91 7092909308';
+                // Toggle a class instead of using inline styles for better practice
+                this.classList.add('revealed');
             }
         });
     </script>
 </body>
-</html> 
+</html>
