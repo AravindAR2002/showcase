@@ -1,0 +1,224 @@
+/* ------------------------- */
+/* --- EASY EDIT SECTION --- */
+/* ------------------------- */
+:root {
+    /* Colors - Change these to alter the site's theme */
+    --primary-color: #005f73;   /* A dark teal for accents */
+    --secondary-color: #0a9396; /* A lighter teal */
+    --background-color: #f4f4f4; /* Light gray background */
+    --card-background: #ffffff; /* White for cards */
+    --text-color: #333333;      /* Dark gray for text */
+    --heading-color: #001219;   /* Almost black for headings */
+
+    /* Fonts - Change these to alter the site's fonts */
+    --heading-font: 'Poppins', sans-serif;
+    --body-font: 'Lato', sans-serif;
+}
+/* ------------------------- */
+/* --- END OF EDIT SECTION --- */
+/* ------------------------- */
+
+body {
+    font-family: var(--body-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+/* Header */
+header {
+    background: var(--heading-color);
+    color: white;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.name-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0;
+    color: white;
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    opacity: 0.8;
+    margin-top: 5px;
+}
+
+.social-links {
+    margin-top: 25px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.8rem;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+    transform: scale(1.2);
+}
+
+/* Projects Section */
+.projects {
+    padding: 50px 0;
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+/* Adds a little underline to the heading */
+.projects h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--card-background);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    overflow: hidden; /* Keeps the border inside the card radius */
+    border-top: 5px solid transparent;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-top-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+    border-top-color: var(--primary-color);
+}
+
+.project-card h3 {
+    margin: 0;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    padding: 0;
+    margin: 10px 0 0;
+    opacity: 0.8;
+}
+
+/* Inner content padding for the card */
+.project-card h3, .project-card p {
+    padding: 0 25px;
+}
+/* Adjust padding for the last element */
+.project-card p {
+    padding-bottom: 25px;
+}
+/* Adjust padding for the first element */
+.project-card h3 {
+    padding-top: 25px;
+}
+
+
+/* Project Detail Page Specifics */
+.project-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.project-header h1, .project-header p {
+    color: white;
+}
+
+.project-details {
+    padding: 40px;
+    background: white;
+    border-radius: 8px;
+    margin: -40px auto 40px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.project-details ul {
+    list-style-type: '✓  '; /* Adds a checkmark before list items */
+    padding-left: 20px;
+}
+
+.project-links {
+    margin: 40px 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: var(--heading-color);
+    transform: translateY(-2px);
+}
+
+.btn.btn-secondary {
+    background: #6c757d;
+}
+.btn.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    transition: color 0.3s;
+}
+.back-link:hover{
+    text-decoration: underline;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    background: var(--heading-color);
+    color: rgba(255, 255, 255, 0.7);
+}
